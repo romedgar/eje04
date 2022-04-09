@@ -23,10 +23,15 @@ export class NewStudentPage implements OnInit {
         Validators.maxLength(150),
         Validators.pattern('[a-zA-Z]')
       ])),
-      controlnumber:[""],
-      curp:[""],
-      age:[0],
-      active:[false]
+      controlnumber: new FormControl([""], Validators.compose([
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(8),
+        Validators.pattern('[1-9]')
+      ])),
+      curp: new FormControl([""], Validators.required),
+      age:new FormControl([0], Validators.required),
+      active:new FormControl([false], Validators.required),
     });
   }
 
